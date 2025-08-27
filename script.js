@@ -9,7 +9,7 @@ const computerScoreDisplay = document.getElementById("computerScore");
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-
+// background update as the game progresses
 function updateBackground() {
   const maxScore = Math.max(playerScore, computerScore);
   let backgroundColor;
@@ -26,7 +26,7 @@ function updateBackground() {
   }
   document.body.style.backgroundColor = backgroundColor;
 }
-
+// THE MAIN FUNCTION
 function play(playerChoice) {
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -53,7 +53,7 @@ function play(playerChoice) {
     }
   }
 }
-
+// reset game after score 12
 function resetGame(endMsg, resultClass) {
   displayResult.textContent = endMsg;
   displayResult.classList.add(resultClass);
@@ -66,7 +66,7 @@ function resetGame(endMsg, resultClass) {
   computerChoiceDisplay.textContent = "";
   updateBackground();
 }
-
+// ------------------------------ WIN FUNCTION ----------------------------
 function win() {
   playerScore++;
   let winMsg;
@@ -129,7 +129,7 @@ function win() {
   playerScoreDisplay.textContent = `Player Score: ${playerScore} `;
   updateBackground();
 }
-
+// ------------------------- LOSE ------------------------------------
 function lose() {
   computerScore++;
   let loseMsg;
@@ -194,6 +194,7 @@ function lose() {
   updateBackground();
 }
 
+// -------------- for TIES ------------------------
 function tie() {
   displayResult.classList.add("tie");
   ties++;
