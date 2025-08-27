@@ -60,10 +60,14 @@ function play(playerChoice) {
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
-  playerChoiceDisplay.textContent = `You chose: ${playerChoice}`;
-  computerChoiceDisplay.textContent = `Computer: ${randomChoice}`;
   setTimeout(() => {
     displayResult.classList.remove("tie", "win", "lost");
+  }, 1500);
+  setTimeout(() => {
+    playerChoiceDisplay.textContent = `You chose: ${playerChoice}`;
+  }, 1500);
+  setTimeout(() => {
+    computerChoiceDisplay.textContent = `Computer chose ${randomChoice}`;
   }, 1500);
 
   // Delay result processing by 1.5 seconds
