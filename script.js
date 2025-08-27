@@ -91,25 +91,29 @@ function tie() {
   displayResult.classList.add("tie");
   ties++;
   if (ties > 5) {
-    displayResult.textContent = "Too Many Ties, dammit!";
-    ties = 0;
+    const manyTieMsgs = [
+      "WTF? too many ties.",
+      "SToP CopYing ME!",
+      "This is getting boring.",
+      "We’re too in sync, let's kiss.",
+      "We should make out",
+      "screw this game, tie again!",
+      "Are we twins or what?",
+      "Ugh, my brain hurts. Tie.",
+    ];
+    const manyTieMsg =
+      manyTieMsgs[Math.floor(Math.random() * manyTieMsgs.length)];
+    displayResult.textContent = manyTieMsg;
   } else {
     const tieMsgs = [
       "Tie.",
       "Ugh! Tie",
-      "SToP CopYing ME!",
       "just why?",
       "tie (┬┬﹏┬┬)",
-      "screw this game, tie again!",
-      "Are we twins or what?",
       "Boring! Tie again!",
       "weirdo!",
-      "This is getting boring.",
       "Tie? Yawn.",
-      "We’re too in sync, let's kiss.",
       "What is this, a stalemate?",
-      "We should make out",
-      "Ugh, my brain hurts. Tie.",
     ];
     const tieMsg = tieMsgs[Math.floor(Math.random() * tieMsgs.length)];
     displayResult.textContent = tieMsg;
