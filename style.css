@@ -15,6 +15,7 @@
   box-shadow: 5px 5px 10px hsl(0, 0%, 80%);
   cursor: pointer;
   margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -36,7 +37,8 @@ h1 {
 }
 
 #displayMsg {
-  font-size: 5rem;
+  margin-top: 1rem;
+  font-size: 4rem;
 }
 
 .lost {
@@ -44,9 +46,48 @@ h1 {
 }
 
 .win {
-  color: rgb(76, 255, 76);
+  color: rgb(51, 140, 51);
 }
 
 .tie {
   color: rgb(86, 83, 83);
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.score {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: rgb(0, 51, 181);
+}
+
+@media (max-width: 800px) {
+  .btn {
+    height: 5rem;
+    width: 5rem;
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .container {
+    padding: 3rem;
+  }
+  .score {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+  }
+
+  #displayMsg {
+    font-size: 2.5rem;
+  }
 }

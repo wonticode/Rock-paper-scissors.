@@ -59,7 +59,7 @@ function win() {
   displayResult.textContent = winMsg;
   displayResult.classList.add("win");
   playerScore++;
-  playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+  playerScoreDisplay.textContent = `Player Score: ${playerScore} `;
 }
 
 function lose() {
@@ -84,7 +84,7 @@ function lose() {
   displayResult.textContent = loseMsg;
   displayResult.classList.add("lost");
   computerScore++;
-  computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+  computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
 }
 
 function tie() {
