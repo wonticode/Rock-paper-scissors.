@@ -9,50 +9,74 @@ const computerScoreDisplay = document.getElementById("computerScore");
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-// background update as the game progresses
-function updateBackground() {
-  const maxScore = Math.max(playerScore, computerScore);
+let isGameLocked = false;
+
+// Sound effect
+const winSound = new Audio("sound-effects/victory.mp3");
+
+// background update based on game outcome
+function updateBackground(result) {
   let backgroundColor;
-  if (maxScore >= 11) {
-    backgroundColor = "#12121eff";
-  } else if (maxScore >= 9) {
-    backgroundColor = "#4b3f8dff";
-  } else if (maxScore >= 6) {
-    backgroundColor = "#53469fff";
-  } else if (maxScore >= 3) {
-    backgroundColor = "#8576daff";
-  } else {
-    backgroundColor = "#bbbbedff";
+  switch (result) {
+    case "win":
+      backgroundColor = "#4caf50";
+      break;
+    case "lost":
+      backgroundColor = "#f44336";
+      break;
+    case "tie":
+      backgroundColor = "#5c6b77ff";
+      break;
+    default:
+      backgroundColor = "#bbbbed";
   }
   document.body.style.backgroundColor = backgroundColor;
 }
+
+// disable buttons during delay
+function toggleButtons(disabled) {
+  rockBtn.disabled = disabled;
+  paperBtn.disabled = disabled;
+  scissorsBtn.disabled = disabled;
+}
+
 // THE MAIN FUNCTION
 function play(playerChoice) {
+  if (isGameLocked) return;
+  isGameLocked = true;
+  toggleButtons(true);
+
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = choices[Math.floor(Math.random() * choices.length)];
-  console.log(`Computer: ${randomChoice}, Player: ${playerChoice}`);
 
   playerChoiceDisplay.textContent = `You chose: ${playerChoice}`;
   computerChoiceDisplay.textContent = `Computer: ${randomChoice}`;
+  setTimeout(() => {
+    displayResult.classList.remove("tie", "win", "lost");
+  }, 1500);
 
-  displayResult.classList.remove("tie", "win", "lost");
-
-  if (randomChoice === playerChoice) {
-    tie();
-  } else {
-    switch (playerChoice) {
-      case "paper":
-        randomChoice === "rock" ? win() : lose();
-        break;
-      case "rock":
-        randomChoice === "scissors" ? win() : lose();
-        break;
-      case "scissors":
-        randomChoice === "paper" ? win() : lose();
-        break;
+  // Delay result processing by 1.5 seconds
+  setTimeout(() => {
+    if (randomChoice === playerChoice) {
+      tie();
+    } else {
+      switch (playerChoice) {
+        case "paper":
+          randomChoice === "rock" ? win() : lose();
+          break;
+        case "rock":
+          randomChoice === "scissors" ? win() : lose();
+          break;
+        case "scissors":
+          randomChoice === "paper" ? win() : lose();
+          break;
+      }
     }
-  }
+    isGameLocked = false;
+    toggleButtons(false);
+  }, 1500);
 }
+
 // reset game after score 12
 function resetGame(endMsg, resultClass) {
   displayResult.textContent = endMsg;
@@ -64,8 +88,9 @@ function resetGame(endMsg, resultClass) {
   computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
   playerChoiceDisplay.textContent = "";
   computerChoiceDisplay.textContent = "";
-  updateBackground();
+  updateBackground("default");
 }
+
 // ------------------------------ WIN FUNCTION ----------------------------
 function win() {
   playerScore++;
@@ -127,8 +152,10 @@ function win() {
   displayResult.textContent = winMsg;
   displayResult.classList.add("win");
   playerScoreDisplay.textContent = `Player Score: ${playerScore} `;
-  updateBackground();
+  updateBackground("win");
+  winSound.play().catch((error) => console.log("Win sound failed:", error));
 }
+
 // ------------------------- LOSE ------------------------------------
 function lose() {
   computerScore++;
@@ -191,7 +218,7 @@ function lose() {
   displayResult.textContent = loseMsg;
   displayResult.classList.add("lost");
   computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
-  updateBackground();
+  updateBackground("lost");
 }
 
 // -------------- for TIES ------------------------
@@ -234,4 +261,5 @@ function tie() {
     const tieMsg = tieMsgs[Math.floor(Math.random() * tieMsgs.length)];
     displayResult.textContent = tieMsg;
   }
+  updateBackground("tie");
 }

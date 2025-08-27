@@ -32,6 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: background-color 0.3s ease-out;
 }
 #displayMsg {
   margin-top: 1rem;
