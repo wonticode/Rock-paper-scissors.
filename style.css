@@ -16,8 +16,11 @@
   cursor: pointer;
   margin-right: 2rem;
   margin-bottom: 2rem;
+  transition: 0.3s ease;
 }
-
+.btn:hover {
+  transform: scale(1.08);
+}
 .container {
   background-color: rgb(236, 245, 255);
   text-align: center;
@@ -31,11 +34,6 @@ body {
   height: 100dvh;
   align-items: center;
 }
-
-h1 {
-  font-size: 5rem;
-}
-
 #displayMsg {
   margin-top: 1rem;
   font-size: 4rem;
@@ -73,9 +71,7 @@ h1 {
     font-size: 3rem;
     margin-right: 1rem;
   }
-  h1 {
-    font-size: 2rem;
-  }
+
   h2 {
     font-size: 1.2rem;
   }
