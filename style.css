@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+.btn {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 100px;
+  font-size: 6rem;
+  border: none;
+  background-color: white;
+  box-shadow: 5px 5px 10px hsl(0, 0%, 80%);
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.container {
+  background-color: rgb(236, 245, 255);
+  text-align: center;
+  padding: 5rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100dvh;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+#displayMsg {
+  font-size: 5rem;
+}
+
+.lost {
+  color: rgb(223, 63, 63);
+}
+
+.win {
+  color: rgb(76, 255, 76);
+}
+
+.tie {
+  color: rgb(86, 83, 83);
+}
