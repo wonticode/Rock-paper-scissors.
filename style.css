@@ -25,14 +25,13 @@
   background-color: rgb(236, 245, 255);
   text-align: center;
   padding: 5rem;
+  margin-top: 2rem;
 }
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100dvh;
-  align-items: center;
 }
 #displayMsg {
   margin-top: 1rem;
@@ -51,9 +50,17 @@ body {
   color: rgb(86, 83, 83);
 }
 
+.player {
+  color: rgb(255, 100, 126);
+}
+
+.computer {
+  color: rgb(0, 51, 181);
+}
+
 .scoreContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 2rem;
 }
@@ -61,7 +68,6 @@ body {
 .score {
   font-size: 2rem;
   font-weight: bolder;
-  color: rgb(0, 51, 181);
 }
 
 @media (max-width: 800px) {
@@ -76,7 +82,7 @@ body {
     font-size: 1.2rem;
   }
   .container {
-    padding: 3rem;
+    padding: 1rem;
   }
   .score {
     font-size: 1.2rem;

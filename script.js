@@ -13,16 +13,16 @@ let ties = 0;
 function updateBackground() {
   const maxScore = Math.max(playerScore, computerScore);
   let backgroundColor;
-  if (maxScore >= 12) {
-    backgroundColor = "#404040";
+  if (maxScore >= 11) {
+    backgroundColor = "#12121eff";
   } else if (maxScore >= 9) {
-    backgroundColor = "#707070";
+    backgroundColor = "#4b3f8dff";
   } else if (maxScore >= 6) {
-    backgroundColor = "#a0a0a0";
+    backgroundColor = "#53469fff";
   } else if (maxScore >= 3) {
-    backgroundColor = "#d0d0d0";
+    backgroundColor = "#8576daff";
   } else {
-    backgroundColor = "#f0f0f0";
+    backgroundColor = "#bbbbedff";
   }
   document.body.style.backgroundColor = backgroundColor;
 }
@@ -33,7 +33,7 @@ function play(playerChoice) {
   console.log(`Computer: ${randomChoice}, Player: ${playerChoice}`);
 
   playerChoiceDisplay.textContent = `You chose: ${playerChoice}`;
-  computerChoiceDisplay.textContent = `Computer chose: ${randomChoice}`;
+  computerChoiceDisplay.textContent = `Computer: ${randomChoice}`;
 
   displayResult.classList.remove("tie", "win", "lost");
 
@@ -60,7 +60,7 @@ function resetGame(endMsg, resultClass) {
   playerScore = 0;
   computerScore = 0;
   ties = 0;
-  playerScoreDisplay.textContent = `Player Score: ${playerScore} `;
+  playerScoreDisplay.textContent = `Your Score: ${playerScore} `;
   computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
   playerChoiceDisplay.textContent = "";
   computerChoiceDisplay.textContent = "";
