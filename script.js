@@ -100,6 +100,14 @@ function tie() {
       "screw this game, tie again!",
       "Are we twins or what?",
       "Ugh, my brain hurts. Tie.",
+      "Tie.",
+      "Ugh! Tie",
+      "just why?",
+      "tie (┬┬﹏┬┬)",
+      "Boring! Tie again!",
+      "weirdo!",
+      "Tie? Yawn.",
+      "What is this, a stalemate?",
     ];
     const manyTieMsg =
       manyTieMsgs[Math.floor(Math.random() * manyTieMsgs.length)];
