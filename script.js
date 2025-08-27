@@ -10,6 +10,23 @@ let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 
+function updateBackground() {
+  const maxScore = Math.max(playerScore, computerScore);
+  let backgroundColor;
+  if (maxScore >= 12) {
+    backgroundColor = "#404040";
+  } else if (maxScore >= 9) {
+    backgroundColor = "#707070";
+  } else if (maxScore >= 6) {
+    backgroundColor = "#a0a0a0";
+  } else if (maxScore >= 3) {
+    backgroundColor = "#d0d0d0";
+  } else {
+    backgroundColor = "#f0f0f0";
+  }
+  document.body.style.backgroundColor = backgroundColor;
+}
+
 function play(playerChoice) {
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -47,6 +64,7 @@ function resetGame(endMsg, resultClass) {
   computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
   playerChoiceDisplay.textContent = "";
   computerChoiceDisplay.textContent = "";
+  updateBackground();
 }
 
 function win() {
@@ -109,6 +127,7 @@ function win() {
   displayResult.textContent = winMsg;
   displayResult.classList.add("win");
   playerScoreDisplay.textContent = `Player Score: ${playerScore} `;
+  updateBackground();
 }
 
 function lose() {
@@ -172,6 +191,7 @@ function lose() {
   displayResult.textContent = loseMsg;
   displayResult.classList.add("lost");
   computerScoreDisplay.textContent = `Computer Score: ${computerScore} `;
+  updateBackground();
 }
 
 function tie() {
